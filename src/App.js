@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import Navbar from "./Navbar.js";
 import Home from "./Home.js";
 import About from "./About.js";
@@ -9,7 +9,7 @@ import Cart from "./Cart.js";
 
 function App() {
   const [cart, setCart] = useState(function () {
-    const savedString = localStorage.getItem("cart");
+
     let savedCart = [];
     try {
       savedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -60,7 +60,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Navbar cart={cart} />
       <div className="container">
         <Switch>
@@ -85,7 +85,7 @@ function App() {
           </Route>
         </Switch>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
